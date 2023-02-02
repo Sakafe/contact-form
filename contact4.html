@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        form {
+            width: 90%;
+            margin: 50px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            
+        }
+        form input, form textarea{
+        border: 0;
+        margin: 10px 0;
+        padding: 20px;
+        outline: none;
+        background: #f5f5f5;
+        font-size: 16px;
+    }
+        form * {
+            width: 100%;
+            margin-top: 2px;
+        }
+        .submit{
+            background: #d1f1e9;
+            font-size: 25px;
+            color: darkblue;
+        }
+    </style>
+</head>
+ 
+<body>
+    <form class="from">
+        <h2>Contact Us</h2>
+        <span class="message"></span>
+        <input type="text" name="name" placeholder='Name..'>
+        <input type="email" name="email" placeholder='Email..'>
+        <textarea name="message" cols="30" rows="10" placeholder='Message..'></textarea>
+        <input type="submit" class="submit">
+    </form>
+    <script>
+        let url = "https://script.google.com/macros/s/AKfycbwOHwLMbglu_Ikq_SbFzGQrFKfNNW-mxdavbj2IhO3HRLza_W4OlmZ9P98sJNAU7zFH2A/exec";
+        // let url = "https://script.google.com/macros/s/AKfycbx7E5Sl5x3Ine9yVU1-g9eX71QEHhckBWdtVE6IdBvE15xJsfDG0gk8MaJhD1RWHFjE/exec?fbclid=IwAR35LltSJ7XqeTS3R4wTRm14w0H0iLSaI-iMiHf98EPr4bzZ3a57GN2tm1s";
+        let form = document.querySelector("form");
+        let submit = document.querySelector(".submit");
+        let message = document.querySelector(".message");
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            submit.value = "submitting.."
+            fetch(url, {
+                    method: "POST",
+                    body: new FormData(form)
+                })
+                .then(res => res.text())
+                .then(data => {
+                    message.innerHTML = data;
+                    submit.value = "submit"
+ 
+                })
+                .catch(err => {
+                    message.innerHTML = err;
+                    submit.value = "submit"
+                })
+        })
+
+
+
+        // code clct from :  https://www.youtube.com/watch?v=Nc3FpmLAkck
+        // google-sheet-code: 
+        // let sheet = SpreadsheetApp.openByUrl("YOUR_SPREADSHEET_URL")
+        // function doPost(e){
+        // MailApp.sendEmail("receipent email address",`${e.parameters.name} from new contact form!`,`${e.parameters.message}\n${e.parameters.email}`)
+        // return ContentService.createTextOutput("Message has been Sent!")
+    </script>
+</body>
+ 
+</html>
