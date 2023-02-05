@@ -41,14 +41,14 @@
     <form class="from">
         <h2>Contact Us</h2>
         <span class="message"></span>
-        <input id="name" type="text" name="name" placeholder='Name..'>
-        <input id="email" type="email" name="email" placeholder='Email..'>
-        <textarea id="message" name="message" cols="30" rows="10" placeholder='Message..'></textarea>
+        <input type="text" name="name" placeholder='Name..'>
+        <input type="email" name="email" placeholder='Email..'>
+        <textarea name="message" cols="30" rows="10" placeholder='Message..'></textarea>
         <input type="submit" class="submit">
     </form>
     <script>
-        // let url = "https://script.google.com/macros/s/AKfycbwOHwLMbglu_Ikq_SbFzGQrFKfNNW-mxdavbj2IhO3HRLza_W4OlmZ9P98sJNAU7zFH2A/exec";
-        let url = "https://script.google.com/macros/s/AKfycbx7E5Sl5x3Ine9yVU1-g9eX71QEHhckBWdtVE6IdBvE15xJsfDG0gk8MaJhD1RWHFjE/exec?fbclid=IwAR35LltSJ7XqeTS3R4wTRm14w0H0iLSaI-iMiHf98EPr4bzZ3a57GN2tm1s";
+        //  let url = "https://script.google.com/macros/s/AKfycbwlxyeKC_llHgMGRz2dkdUXT4y2-zKuJWD3lVvLtKYuvVsz_G_4PkzBP5uGX6_UvLcbgA/exec";
+        let url = 'https://script.google.com/macros/s/AKfycbxUQc782jt8h3yzsHFXCQupJYyoKaALSdFRbvwUco5IOWps7ghnqd6QTzq1AcEYJJex/exec'
         let form = document.querySelector("form");
         let submit = document.querySelector(".submit");
         let message = document.querySelector(".message");
@@ -70,16 +70,5 @@
                     submit.value = "submit"
                 })
         })
-
-
-
-        // code clct from :  https://www.youtube.com/watch?v=Nc3FpmLAkck
-        // google-sheet-code: 
-        // let sheet = SpreadsheetApp.openByUrl("YOUR_SPREADSHEET_URL")
-        // function doPost(e){
-        // MailApp.sendEmail("receipent email address",`${e.parameters.name} from new contact form!`,`${e.parameters.message}\n${e.parameters.email}`)
-        // return ContentService.createTextOutput("Message has been Sent!")
     </script>
-</body>
- 
-</html>
+       

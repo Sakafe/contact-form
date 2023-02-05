@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMTPJS TUT</title>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+</head>
+<body>
+    <form id="submit" action="#" class="form-name">
+        <input type="text" id="fname" placeholder="Enter First Name...">
+        <input type="text" id="lname" placeholder="Enter Last Name...">
+        <input type="email" id="email" placeholder="Enter email">
+        <input type="number" id="phone" placeholder="Enter phone number">
+        <input type="submit" value="Send">
+    </form>
+
+
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        const fname = document.getElementById('fname');
+        const lname = document.getElementById('lname');
+        const email = document.getElementById('email');
+        const phone = document.getElementById('phone');
+        const submit = document.getElementsByClassName('form-name')[0];
+        // 9134050b-404c-4093-94f4-5c8deda5e136
+
+    submit.addEventListener('submit',(e)=>{
+        e.preventDefault();
+
+
+
+    Email.send({
+    SecureToken : " 9134050b-404c-4093-94f4-5c8deda5e136",
+    To : 'ahmedsakafe@gmail.com',
+    From : "ahmedsakafe@gmail.com",
+    Subject : "This is the subject",
+    Body : "And this is the body"
+}).then(
+  message => alert(message)
+);
+    //     let ebody = `
+    //     <h1>First Name: </h1>${fname.value}
+    //     <br>
+    //     <h1>Last Name: </h1>${lname.value}
+    //     `;
+
+    // Email.send({
+    //     SecureToken : "your-token", //add your token here
+    //     To : 'them@website.com', 
+    //     From : "you@isp.com",
+    //     Subject : "This is the subject",
+    //     Body : ebody
+    // }).then(
+    //   message => alert(message)
+    // );
+});
+    </script>
+
+
+<!-- enliwi@gmail.com
+    pass:5D60F8D09ACF7344C56D1D27F8B58BD89803 -->
+</body>
+</html>
